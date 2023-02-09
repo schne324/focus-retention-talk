@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Focus Retention | Harris Schneiderman</title>
+</head>
+<body>
+  <header>
+    <h1>Focus on <span>focus</span></h1>
+    <h2><em>How to manage focus in modern web applications</em></h2>
+    <h2>Harris Schneiderman</h2>
+    <a href="#example-1" class="next-section">
+      <span>Example 1: same page links</span>
+      <i class="fa-solid fa-angle-down"></i>
+    </a>
+  </header>
+  <main>
+    <section id="example-1" tabindex="-1">
+      <h3>Example 1: same page links</h3>
+      <p>
+        Clicking the above &quot;Example 1: in-page links&quot; link shifted focus to this section.
+        This is built-in functionality in modern browsers accomplished using an anchor tag with an
+        <code>href</code> that points at a section's </code>id</code>.
+      </p>
+      <p><code>&lt;a href=&quot;#section-1&quot;&gt;jump to section 1&lt;a&gt;</code></p>
+      <p><code>&lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;&lt;section&gt;</code></p>
+      <a href="#example-2" class="next-section">
+        <span>Example 2: element removed</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </a>
+    </section>
+    <section id="example-2" tabindex="-1">
+      <h3>Example 2: element removed</h3>
+      <p>When a focused element is removed from the page, focus is brought to the body element which starts the user back at the top of the page.
+        This can can cause confusing and annoying experiences for keyboard-only users.
+      </p>
+      <p>For dynamic applications that allow users to delete items from the page, focus needs to be retained to avoid this.</p>
+      <p>There are usually many &quot;right&quot; answers. It depends on the context. Just make sure focus is brought to something logical and intuitive...</p>
+      <div class="block">
+        <div class="row">
+          <label id="item-1-label" for="item-1">Item 1</label>
+          <input id="item-1" type="text">
+          <button id="delete-1" aria-labelledby="delete-1 item-1-label">
+            <i aria-hidden="true" class="fa-solid fa-trash"></i>
+            <span>delete</span>
+          </button>
+        </div>
+        <div class="row">
+          <label id="item-2-label" for="item-2">Item 2</label>
+          <input id="item-2" type="text">
+          <button id="delete-2" aria-labelledby="delete-2 item-2-label">
+            <i aria-hidden="true" class="fa-solid fa-trash"></i>
+            <span>delete</span>
+          </button>
+        </div>
+        <div class="row">
+          <label id="item-3-label" for="item-3">Item 3</label>
+          <input id="item-3" type="text">
+          <button id="delete-3" aria-labelledby="delete-3 item-3-label">
+            <i aria-hidden="true" class="fa-solid fa-trash"></i>
+            <span>delete</span>
+          </button>
+        </div>
+        <div class="row">
+          <label id="item-4-label" for="item-4">Item 4</label>
+          <input id="item-4" type="text">
+          <button id="delete-4" aria-labelledby="delete-4 item-4-label">
+            <i aria-hidden="true" class="fa-solid fa-trash"></i>
+            <span>delete</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="example-3" tabindex="-1">
+      <h3>Example 3: element added</h3>
+    </section>
+    <section id="example-4" tabindex="-1">
+      <h3>Example 4: modal dialogs</h3>
+    </section>
+    <section id="example-5" tabindex="-1">
+      <h3>Example 5: modal dialogs</h3>
+    </section>
+    <section id="example-6" tabindex="-1">
+      <h3>Example 6: single page app navigation</h3>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+</html>
