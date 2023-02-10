@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,700;1,300&family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Focus Retention | Harris Schneiderman</title>
+  <title>Focus on Focus | Harris Schneiderman</title>
 </head>
 <body>
-  <header>
+  <header id="header" tabindex="-1">
     <h1>Focus on <span>focus</span></h1>
     <h2><em>How to manage focus in modern web applications</em></h2>
     <h2>Harris Schneiderman</h2>
@@ -29,8 +29,13 @@
         This is built-in functionality in modern browsers accomplished using an anchor tag with an
         <code>href</code> that points at a section's </code>id</code>.
       </p>
-      <p><code>&lt;a href=&quot;#section-1&quot;&gt;jump to section 1&lt;a&gt;</code></p>
-      <p><code>&lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;&lt;section&gt;</code></p>
+      <p>
+        <pre><code>&lt;a href=&quot;#section-1&quot;&gt;
+  jump to section 1
+&lt;a&gt;
+&lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
+&lt;/section&gt;</code></pre>
+      </p>
       <a href="#example-2" class="next-section">
         <span>Example 2: element removed</span>
         <i class="fa-solid fa-angle-down"></i>
@@ -42,7 +47,7 @@
         This can can cause confusing and annoying experiences for keyboard-only users.
       </p>
       <p>For dynamic applications that allow users to delete items from the page, focus needs to be retained to avoid this.</p>
-      <p>There are usually many &quot;right&quot; answers. It depends on the context. Just make sure focus is brought to something logical and intuitive...</p>
+      <p>There are usually many &quot;right&quot; answers. It depends on the context.</p>
       <div class="block">
         <div class="row">
           <label id="item-1-label" for="item-1">Item 1</label>
@@ -77,20 +82,55 @@
           </button>
         </div>
       </div>
+      <a href="#example-3" class="next-section">
+        <span>Example 3: element added</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </a>
     </section>
     <section id="example-3" tabindex="-1">
       <h3>Example 3: element added</h3>
+      <p>When a new element is added to the page based on user-interaction, focus should be brought to the new element.</p>
+      <p>Similar to the above removal examples, where focus should go specifically depends on what the user is performing...</p>
+      <button>
+        <i class="fa-solid fa-plus"></i>
+        <span>Add new item</span>
+      </button>
+      <a href="#example-4" class="next-section">
+        <span>Example 4: modal dialogs</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </a>
     </section>
     <section id="example-4" tabindex="-1">
       <h3>Example 4: modal dialogs</h3>
+      <p>Modal dialogs require quite a few considerations when it comes to focus...</p>
+      <ul>
+        <li>Shift focus to modal when trigger is clicked</li>
+        <li>Trap focus within modal</li>
+        <li>When closed, return focus to the trigger which launched it</li>
+      </ul>
+      <div>
+        <button id="modal-launcher">
+          Launch modal
+        </button>
+      </div>
+      <a href="#example-5" class="next-section">
+        <span>Example 5: SPA navigation</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </a>
     </section>
     <section id="example-5" tabindex="-1">
-      <h3>Example 5: modal dialogs</h3>
-    </section>
-    <section id="example-6" tabindex="-1">
-      <h3>Example 6: single page app navigation</h3>
+      <h3>Example 6: single page app (SPA) navigation</h3>
+      <p>Many modern web applications are single page applications or &quot;SPAs&quot;.</p>
+      <p>SPAs are applications which do not trigger a full page load when navigating from one page to another.</p>
+      <p>Focus should be brought somewhere logical when a new page in the app is loaded.</p>
+      <a href="#header" class="next-section">
+        <span>Back to top</span>
+        <i class="fa-solid fa-angle-up"></i>
+      </a>
     </section>
   </main>
-  <footer></footer>
+  <footer>
+    <p>Thanks for listening! <i class="fa-solid fa-hand-peace"></i></p>
+  </footer>
 </body>
 </html>
