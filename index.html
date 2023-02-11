@@ -12,125 +12,156 @@
   <title>Focus on Focus | Harris Schneiderman</title>
 </head>
 <body>
-  <header id="header" tabindex="-1">
-    <h1>Focus on <span>focus</span></h1>
-    <h2><em>How to manage focus in modern web applications</em></h2>
-    <h2>Harris Schneiderman</h2>
-    <a href="#example-1" class="next-section">
-      <span>Example 1: same page links</span>
-      <i class="fa-solid fa-angle-down"></i>
-    </a>
-  </header>
-  <main>
-    <section id="example-1" tabindex="-1">
-      <h3>Example 1: same page links</h3>
-      <p>
-        Clicking the above &quot;Example 1: in-page links&quot; link shifted focus to this section.
-        This is built-in functionality in modern browsers accomplished using an anchor tag with an
-        <code>href</code> that points at a section's </code>id</code>.
-      </p>
-      <p>
-        <pre><code>&lt;a href=&quot;#section-1&quot;&gt;
-  jump to section 1
-&lt;a&gt;
-&lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
-&lt;/section&gt;</code></pre>
-      </p>
-      <a href="#example-2" class="next-section">
-        <span>Example 2: element removed</span>
+  <div id="wrapper">
+    <header id="header" tabindex="-1">
+      <h1>Focus on <span>focus</span></h1>
+      <h2><em>How to manage focus in modern web applications</em></h2>
+      <h2>Harris Schneiderman</h2>
+      <a href="#example-1" class="next-section">
+        <span>Example 1: same page links</span>
         <i class="fa-solid fa-angle-down"></i>
       </a>
-    </section>
-    <section id="example-2" tabindex="-1">
-      <h3>Example 2: element removed</h3>
-      <p>When a focused element is removed from the page, focus is brought to the body element which starts the user back at the top of the page.
-        This can can cause confusing and annoying experiences for keyboard-only users.
-      </p>
-      <p>For dynamic applications that allow users to delete items from the page, focus needs to be retained to avoid this.</p>
-      <p>There are usually many &quot;right&quot; answers. It depends on the context.</p>
-      <div class="block">
-        <div class="row">
-          <label id="item-1-label" for="item-1">Item 1</label>
-          <input id="item-1" type="text">
-          <button id="delete-1" aria-labelledby="delete-1 item-1-label">
-            <i aria-hidden="true" class="fa-solid fa-trash"></i>
-            <span>delete</span>
+    </header>
+    <main>
+      <section id="example-1" tabindex="-1" aria-labelledby="example-1-heading">
+        <h3 id="example-1-heading">Example 1: same page links</h3>
+        <p>
+          Clicking the above &quot;Example 1: in-page links&quot; link shifted focus to this section.
+          This is built-in functionality in modern browsers accomplished using an anchor tag with an
+          <code>href</code> that points at a section's </code>id</code>.
+        </p>
+        <p>
+          <pre><code>&lt;a href=&quot;#section-1&quot;&gt;
+    jump to section 1
+  &lt;a&gt;
+  &lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
+  &lt;/section&gt;</code></pre>
+        </p>
+        <a href="#example-2" class="next-section">
+          <span>Example 2: element removed</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-2" tabindex="-1" aria-labelledby="example-2-heading">
+        <h3 id="example-2-heading">Example 2: element removed</h3>
+        <p>When a focused element is removed from the page, focus is brought to the body element which starts the user back at the top of the page.
+          This can can cause confusing and annoying experiences for keyboard-only users.
+        </p>
+        <p>For dynamic applications that allow users to delete items from the page, focus needs to be retained to avoid this.</p>
+        <p>There are usually many &quot;right&quot; answers. It depends on the context.</p>
+        <div class="block" tabindex="-1">
+          <div class="row">
+            <label id="item-1-label" for="item-1">Item 1</label>
+            <input id="item-1" type="text">
+            <button id="delete-1" aria-labelledby="delete-1 item-1-label">
+              <i aria-hidden="true" class="fa-solid fa-trash"></i>
+              <span>delete</span>
+            </button>
+            <pre><code>nextRow.focus()</code></pre>
+          </div>
+          <div class="row" tabindex="-1">
+            <label id="item-2-label" for="item-2">Item 2</label>
+            <input id="item-2" type="text">
+            <button id="delete-2" aria-labelledby="delete-2 item-2-label">
+              <i aria-hidden="true" class="fa-solid fa-trash"></i>
+              <span>delete</span>
+            </button>
+            <pre><code>nextDelete.focus()</code></pre>
+          </div>
+          <div class="row">
+            <label id="item-3-label" for="item-3">Item 3</label>
+            <input id="item-3" type="text">
+            <button id="delete-3" aria-labelledby="delete-3 item-3-label">
+              <i aria-hidden="true" class="fa-solid fa-trash"></i>
+              <span>delete</span>
+            </button>
+            <pre><code>input.focus()</code></pre>
+          </div>
+          <div class="row">
+            <label id="item-4-label" for="item-4">Item 4</label>
+            <input id="item-4" type="text">
+            <button id="delete-4" aria-labelledby="delete-4 item-4-label">
+              <i aria-hidden="true" class="fa-solid fa-trash"></i>
+              <span>delete</span>
+            </button>
+            <pre><code>emptyMsg.focus()</code></pre>
+          </div>
+        </div>
+        <a href="#example-3" class="next-section">
+          <span>Example 3: element added</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-3" tabindex="-1" aria-labelledby="example-3-heading">
+        <h3 id="example-3-heading">Example 3: element added</h3>
+        <p>When a new element is added to the page based on user-interaction, focus should be brought to the new element.</p>
+        <p>Similar to the above removal examples, where focus should go specifically depends on what the user is performing...</p>
+        <div class="block">
+          <div class="row">
+            <button>
+              <i class="fa-solid fa-plus"></i>
+              <span>Add new item</span>
+            </button>
+            <pre><code>newItem.focus()</code></pre>
+          </div>
+          <div class="row hidden" role="region" tabindex="-1" aria-labelledby="new-item-heading">
+            <h4 id="new-item-heading">New item</h4>
+            <p>I get focused when added to the page!</p>
+          </div>
+        </div>
+        <a href="#example-4" class="next-section">
+          <span>Example 4: modal dialog</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-4" tabindex="-1" aria-labelledby="example-4-heading">
+        <h3 id="example-4-heading">Example 4: modal dialog</h3>
+        <p>Modal dialogs require quite a few considerations when it comes to focus...</p>
+        <ul>
+          <li>Shift focus to modal when trigger is clicked</li>
+          <li>Trap focus within modal</li>
+          <li>When closed, return focus to the trigger which launched it</li>
+        </ul>
+        <div>
+          <button id="modal-launcher">
+            Launch modal
           </button>
         </div>
-        <div class="row">
-          <label id="item-2-label" for="item-2">Item 2</label>
-          <input id="item-2" type="text">
-          <button id="delete-2" aria-labelledby="delete-2 item-2-label">
-            <i aria-hidden="true" class="fa-solid fa-trash"></i>
-            <span>delete</span>
-          </button>
-        </div>
-        <div class="row">
-          <label id="item-3-label" for="item-3">Item 3</label>
-          <input id="item-3" type="text">
-          <button id="delete-3" aria-labelledby="delete-3 item-3-label">
-            <i aria-hidden="true" class="fa-solid fa-trash"></i>
-            <span>delete</span>
-          </button>
-        </div>
-        <div class="row">
-          <label id="item-4-label" for="item-4">Item 4</label>
-          <input id="item-4" type="text">
-          <button id="delete-4" aria-labelledby="delete-4 item-4-label">
-            <i aria-hidden="true" class="fa-solid fa-trash"></i>
-            <span>delete</span>
-          </button>
-        </div>
-      </div>
-      <a href="#example-3" class="next-section">
-        <span>Example 3: element added</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </a>
-    </section>
-    <section id="example-3" tabindex="-1">
-      <h3>Example 3: element added</h3>
-      <p>When a new element is added to the page based on user-interaction, focus should be brought to the new element.</p>
-      <p>Similar to the above removal examples, where focus should go specifically depends on what the user is performing...</p>
-      <button>
-        <i class="fa-solid fa-plus"></i>
-        <span>Add new item</span>
-      </button>
-      <a href="#example-4" class="next-section">
-        <span>Example 4: modal dialogs</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </a>
-    </section>
-    <section id="example-4" tabindex="-1">
-      <h3>Example 4: modal dialogs</h3>
-      <p>Modal dialogs require quite a few considerations when it comes to focus...</p>
-      <ul>
-        <li>Shift focus to modal when trigger is clicked</li>
-        <li>Trap focus within modal</li>
-        <li>When closed, return focus to the trigger which launched it</li>
-      </ul>
-      <div>
-        <button id="modal-launcher">
-          Launch modal
-        </button>
-      </div>
-      <a href="#example-5" class="next-section">
-        <span>Example 5: SPA navigation</span>
-        <i class="fa-solid fa-angle-down"></i>
-      </a>
-    </section>
-    <section id="example-5" tabindex="-1">
-      <h3>Example 6: single page app (SPA) navigation</h3>
-      <p>Many modern web applications are single page applications or &quot;SPAs&quot;.</p>
-      <p>SPAs are applications which do not trigger a full page load when navigating from one page to another.</p>
-      <p>Focus should be brought somewhere logical when a new page in the app is loaded.</p>
-      <a href="#header" class="next-section">
-        <span>Back to top</span>
-        <i class="fa-solid fa-angle-up"></i>
-      </a>
-    </section>
-  </main>
-  <footer>
-    <p>Thanks for listening! <i class="fa-solid fa-hand-peace"></i></p>
-  </footer>
+        <a href="#example-5" class="next-section">
+          <span>Example 5: SPA navigation</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-5" tabindex="-1" aria-labelledby="example-5-heading">
+        <h3 id="example-5-heading">Example 6: single page app (SPA) navigation</h3>
+        <p>Many modern web applications are single page applications or &quot;SPAs&quot;.</p>
+        <p>SPAs are applications which do not trigger a full page load when navigating from one page to another.</p>
+        <p>Focus should be brought somewhere logical when a new page in the app is loaded.</p>
+        <a href="#new-page" id="new-page-link">Go to new page</a>
+        <a href="#header" class="next-section">
+          <span>Back to top</span>
+          <i class="fa-solid fa-angle-up"></i>
+        </a>
+      </section>
+    </main>
+    <footer>
+      <p>Thanks for listening! <i class="fa-solid fa-hand-peace"></i></p>
+    </footer>
+  </div>
+  <div class="modal hidden" role="dialog" aria-labelledby="modal-heading" tabindex="-1">
+    <h2 id="modal-heading">Dialog title</h2>
+    <p>Dialog content...</p>
+    <button>close</button>
+  </div>
+  <div id="spa-page" class="hidden">
+    <h1 tabindex="-1">New page</h1>
+    <p>This is a new page loaded. Focusing the main content or the h1 is a good idea here.</p>
+    <p>Some even go as far as triggering an offscreen live region announcement that a new page has loaded</p>
+    <button id="back">
+      <i class="fa-solid fa-backward" aria-hidden="true"></i>
+      <span>Go back</span>
+    </button>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
