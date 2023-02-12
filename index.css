@@ -152,6 +152,11 @@ ul {
   margin-left: 1em;
 }
 
+#example-5 pre {
+  display: flex;
+  margin-bottom: 1em;
+}
+
 .hidden {
   display: none;
 }

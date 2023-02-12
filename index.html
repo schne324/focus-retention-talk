@@ -32,10 +32,10 @@
         </p>
         <p>
           <pre><code>&lt;a href=&quot;#section-1&quot;&gt;
-    jump to section 1
-  &lt;a&gt;
-  &lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
-  &lt;/section&gt;</code></pre>
+  jump to section 1
+&lt;a&gt;
+&lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
+&lt;/section&gt;</code></pre>
         </p>
         <a href="#example-2" class="next-section">
           <span>Example 2: element removed</span>
@@ -118,9 +118,9 @@
         <h3 id="example-4-heading">Example 4: modal dialog</h3>
         <p>Modal dialogs require quite a few considerations when it comes to focus...</p>
         <ul>
-          <li>Shift focus to modal when trigger is clicked</li>
-          <li>Trap focus within modal</li>
-          <li>When closed, return focus to the trigger which launched it</li>
+          <li class="row">Shift focus to modal when trigger is clicked <pre><code>modal.focus()</code></pre></li>
+          <li class="row">Trap focus within modal <pre><code>modal.addEventListener('keydown')</code></pre></li>
+          <li class="row">When closed, return focus to the trigger which launched it <pre><code>trigger.focus()</code></pre></li>
         </ul>
         <div>
           <button id="modal-launcher">
@@ -133,10 +133,13 @@
         </a>
       </section>
       <section id="example-5" tabindex="-1" aria-labelledby="example-5-heading">
-        <h3 id="example-5-heading">Example 6: single page app (SPA) navigation</h3>
+        <h3 id="example-5-heading">Example 5: single page app (SPA) navigation</h3>
         <p>Many modern web applications are single page applications or &quot;SPAs&quot;.</p>
         <p>SPAs are applications which do not trigger a full page load when navigating from one page to another.</p>
         <p>Focus should be brought somewhere logical when a new page in the app is loaded.</p>
+        <pre>
+          <code>h1.focus()</code>
+        </pre>
         <a href="#new-page" id="new-page-link">Go to new page</a>
         <a href="#header" class="next-section">
           <span>Back to top</span>
