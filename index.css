@@ -68,7 +68,7 @@ header, section {
   transition: all 500ms;
 }
 
-section:focus {
+section:focus, header:focus {
   box-shadow: inset 0 0 5px .5em;
   transition: all 500ms;
 }
@@ -167,11 +167,6 @@ ul {
   padding: .5em;
   border-radius: 10px;
 }
-
-/* .modal:focus {
-  outline: 3px solid var(--cyan);
-  outline-offset: 5px;
-} */
 
 #wrapper[aria-hidden="true"] {
   filter: blur(8px);

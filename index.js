@@ -38,7 +38,7 @@ delete4.addEventListener('click', () => {
   const newButton = document.createElement('button')
   newButton.innerHTML = 'Restore all items'
   newButton.style.display = 'block'
-  newButton.style.marginTop = '1em'
+  newButton.style.margin = '1em auto'
   block.appendChild(newButton)
   newButton.addEventListener('click', () => {
     rows.forEach(r => r.classList.remove('hidden'))
