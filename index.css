@@ -11,11 +11,25 @@ body {
   text-align: center;
 
   --light-blue: #A8D0DB;
+  --light-blue-alt: #70E4EF;
+  --cyan: #12EAEA;
   --blue: #2B4570;
-  --orange: #E49273;
+  --orange: #F6AF65;
+  --peach: #F1BF98;
   --teal: #077187;
   --green: #074F57;
   --yellow: #CAFF8A;
+  --pink: #EE92C2;
+  --light-pink: #FFD9CE;
+}
+
+*:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 0 4px var(--cyan),
+    0 0 0 6px #000
+  ;
 }
 
 code {
@@ -97,16 +111,24 @@ label {
   margin-top: auto;
 }
 
-#example-1, #example-5 {
+#example-1 {
   background-color: var(--orange);
 }
 
-#example-2, #example-4 {
+#example-2 {
   background-color: var(--yellow);
 }
 
-#example-3, #example-6 {
-  background-color: var(--light-blue);
+#example-3 {
+  background-color: var(--cyan);
+}
+
+#example-4 {
+  background-color: var(--pink);
+}
+
+#example-5 {
+  background-color: var(--peach);
 }
 
 h3 {
@@ -134,17 +156,6 @@ ul {
   display: none;
 }
 
-#example-2 *:focus,
-#example-3 *:focus,
-#example-4 *:focus {
-  outline-color: var(--teal);
-  box-shadow:
-    0 0 0 1px transparent,
-    0 0 0 2px #000,
-    0 0 0 3px transparent,
-    0 0 0 4px #000;
-}
-
 .modal {
   position: fixed;
   left: 50%;
@@ -152,10 +163,23 @@ ul {
   transform: translate(-50%, -50%);
   background: #fff;
   color: #000;
-  border: 3px solid var(--orange);
-  box-shadow: 0 0 7px;
+  border: 1px solid;
+  padding: .5em;
+  border-radius: 10px;
 }
+
+/* .modal:focus {
+  outline: 3px solid var(--cyan);
+  outline-offset: 5px;
+} */
 
 #wrapper[aria-hidden="true"] {
   filter: blur(8px);
+}
+
+#spa-page h1 {
+  border: none;
+  display: inline-block;
+  margin-top: 1em;
+  padding: .75em;
 }
