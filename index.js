@@ -115,16 +115,38 @@ const spaPageLink = document.getElementById('new-page-link')
 const spaPage = document.getElementById('spa-page')
 const spaPageHeading = spaPage.querySelector('h1')
 const back = document.getElementById('back')
+const loaderWrapper = document.querySelector('.loader')
+const loader = loaderWrapper.querySelector('[role="progressbar"]')
+
+const MAX_TIMEOUT = 2200
+const MIN_TIMEOUT = 650
+const randomTimeout = () => Math.floor(Math.random() * (MAX_TIMEOUT - MIN_TIMEOUT + 1) + MIN_TIMEOUT)
+const renderLoader = callback => {
+  loaderWrapper.classList.remove('hidden')
+  loader.focus()
+
+  setTimeout(() => {
+    loaderWrapper.classList.add('hidden')
+    callback()
+  }, randomTimeout())
+}
 
 spaPageLink.addEventListener('click', e => {
   e.preventDefault()
   wrapper.classList.add('hidden')
-  spaPage.classList.remove('hidden')
-  spaPageHeading.focus()
+
+  renderLoader(() => {
+    spaPage.classList.remove('hidden')
+    spaPageHeading.focus()
+  })
 })
 
 back.addEventListener('click', e => {
-  wrapper.classList.remove('hidden')
+  e.preventDefault()
   spaPage.classList.add('hidden')
-  example5.focus()
+
+  renderLoader(() => {
+    wrapper.classList.remove('hidden')
+    example5.focus()
+  })
 })
