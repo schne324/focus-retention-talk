@@ -21,6 +21,9 @@ body {
   --yellow: #CAFF8A;
   --pink: #EE92C2;
   --light-pink: #FFD9CE;
+  --pink-purp: #E8C7DE;
+  --purple: #9F9FED;
+  --other-yellow: #FFFB7D;
 }
 
 *:focus {
@@ -129,6 +132,14 @@ label {
 
 #example-5 {
   background-color: var(--peach);
+}
+
+#example-6 {
+  background-color: var(--purple);
+}
+
+#example-7 {
+  background-color: var(--other-yellow);
 }
 
 h3 {
@@ -240,4 +251,45 @@ ul {
 
 .loader.hidden {
   display: none;
+}
+
+.tooltip-wrapper {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: var(--blue);
+  color: #fff;
+  padding: .4em;
+  border-radius: 4px;
+  width: 265px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 45px;
+  font-size: .85em;
+}
+
+.tooltip::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 12px 10px;
+  border-color: transparent transparent var(--blue) transparent;
+  position: absolute;
+  top: -11px;
+  left: 121px;
+}
+
+.notification {
+  border: 2px solid;
+  border-radius: 5px;
+  padding: .4em;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.notification:not(.hidden) {
+  display: flex;
 }

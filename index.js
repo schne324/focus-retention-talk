@@ -1,6 +1,19 @@
 const wrapper = document.getElementById('wrapper')
 
 /**
+ * First screen (tooltip)
+ */
+
+const tooltipTrigger = document.getElementById('what-is-focus')
+const tooltip = document.getElementById('tooltip')
+const toggleTooltip = () => tooltip.classList.toggle('hidden')
+
+tooltipTrigger.addEventListener('focus', toggleTooltip)
+tooltipTrigger.addEventListener('blur', toggleTooltip)
+tooltipTrigger.addEventListener('mouseover', toggleTooltip)
+tooltipTrigger.addEventListener('mouseout', toggleTooltip)
+
+/**
  * Example 2: element removed
  */
 
@@ -149,4 +162,43 @@ back.addEventListener('click', e => {
     wrapper.classList.remove('hidden')
     example5.focus()
   })
+})
+
+/**
+ * Example 6: loading state
+ */
+
+const loaderTrigger = document.getElementById('loader-trigger');
+
+loaderTrigger.addEventListener('click', () => {
+  renderLoader(() => {
+    loaderTrigger.focus()
+  })
+})
+
+/**
+ * Example 7: notifications
+ */
+
+const notificationTrigger = document.getElementById('trigger-notification')
+const notification = document.querySelector('.notification')
+const dismissNotificaiton = notification.querySelector('.dismiss')
+const closeNotification = () => {
+  notification.classList.add('hidden')
+  notificationTrigger.focus()
+}
+
+notificationTrigger.addEventListener('click', () => {
+  notification.classList.remove('hidden')
+  notification.focus()
+})
+
+dismissNotificaiton.addEventListener('click', closeNotification)
+
+notification.addEventListener('keydown', e => {
+  if (e.which !== 27) {
+    return
+  }
+
+  closeNotification()
 })

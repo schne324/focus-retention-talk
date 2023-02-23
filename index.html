@@ -17,6 +17,16 @@
       <h1>Focus on <span>focus</span></h1>
       <h2><em>How to manage focus in modern web applications</em></h2>
       <h2>Harris Schneiderman</h2>
+      <div class="tooltip-wrapper">
+        <em>
+          <a href="#" id="what-is-focus" aria-describedby="tooltip">
+            What is focus?
+          </a>
+        </em>
+        <div id="tooltip" class="tooltip hidden">
+          The control within a web page that receives input from the keyboard
+        </div>
+      </div>
       <a href="#example-1" class="next-section">
         <span>Example 1: same page links</span>
         <i class="fa-solid fa-angle-down"></i>
@@ -30,13 +40,12 @@
           This is built-in functionality in modern browsers accomplished using an anchor tag with an
           <code>href</code> that points at a section's </code>id</code>.
         </p>
-        <p>
           <pre><code>&lt;a href=&quot;#section-1&quot;&gt;
   jump to section 1
 &lt;a&gt;
 &lt;section id=&quot;section-1&quot; tabindex=&quot;-1&quot;&gt;
 &lt;/section&gt;</code></pre>
-        </p>
+        <em>Look ma, no javascript!</em>
         <a href="#example-2" class="next-section">
           <span>Example 2: element removed</span>
           <i class="fa-solid fa-angle-down"></i>
@@ -141,9 +150,56 @@
           <code>h1.focus()</code>
         </pre>
         <a href="#new-page" id="new-page-link">Go to new page</a>
+        <a href="#example-6" class="next-section">
+          <span>Example 6: loading state</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-6" tabindex="-1" aria-labelledby="example-6-heading">
+        <h3 id="example-6-heading">Example 6: loading state</h3>
+        <p>
+          You might've caught this in the previous example...
+          For asynchronous transitions from one state to another,
+          the loading state needs to be exposed to screen reader users.
+          One way of doing so, is to bring focus to the loading text
+          and returning it somewhere logical once loading is complete.
+        </p>
+        <pre><code>loader.focus()</code></pre>
+        <br />
+        <button id="loader-trigger">
+          <i class="fa-solid fa-spinner"></i>&nbsp;
+          Trigger loading state
+        </button>
+        <a href="#example-7" class="next-section">
+          <span>Example 7: notifications</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </section>
+      <section id="example-7" tabindex="-1" aria-labelledby="example-7-heading">
+        <h3 id="example-7-heading">Example 7: notifications</h3>
+        <p>
+          Similar to loading states, notifications need to be exposed to screen
+          reader users. In certain cases, these notifications should receive focus
+          to ensure this information is announced. In other cases, like when a user
+          is in the middle of performing a task, focus should not be stolen and instead
+          <code>role="alert"</code> should be used which triggers a live region announcement
+          to the user without having to shift focus anywhere.
+        </p>
+        <pre><code>notification.focus()</code></pre>
+        <br />
+        <button id="trigger-notification">
+          Trigger notification
+        </button>
+        <div class="notification hidden" tabindex="-1">
+          <i aria-hidden="true" class="fa-solid fa-info"></i>&nbsp;
+          Your progress has been saved&nbsp;
+          <button aria-label="Dismiss" class="dismiss">
+            <i aria-hidden="true" class="fa-solid fa-times"></i>
+          </button>
+        </div>
         <a href="#header" class="next-section">
           <span>Back to top</span>
-          <i class="fa-solid fa-angle-up"></i>
+          <i aria-hidden="true" class="fa-solid fa-angle-up"></i>
         </a>
       </section>
     </main>
